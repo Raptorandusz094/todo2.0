@@ -9,11 +9,11 @@
   {% for item in items.records.results %}
 
     {% assign id = item.id | plus: 0 %}
-    {% if id < 7 %}
+    {% if id > 20 %}
 
 
       <div class="grid-container">
-        <li>{{ item.id }}
+        <li class="grid-item">{{ item.id }}
           {{ item.title }}
           <form action="/item/delete">
             <input
