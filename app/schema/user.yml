@@ -1,0 +1,9 @@
+name: user
+properties:
+  - name: name
+    type: string
+  - name: foodID
+    type: [id]
+
+
+    

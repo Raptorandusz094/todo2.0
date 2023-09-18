@@ -1,0 +1,44 @@
+{% liquid
+  graphql items = 'item/search'
+   assign test = items
+   
+%}
+
+<!-- list of items -->
+<ul>
+  {% for item in items.records.results %}
+
+    {% assign id = item.id | plus: 0 %}
+    {% if id < 7 %}
+
+
+
+      <li>{{ item.id }}
+        {{ item.title }}
+        <form action="/item/delete">
+          <input
+            type="hidden"
+            name="id"
+            value={{item.id}}>
+          <button type="submit">Mark as done</button>
+        </form>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+<!-- information shown when the list is empty -->
+{% if items.records.total_entries == 0 %}
+  <div>There are no items in the list.</div>
+{% endif %}
+
+<!-- form for adding new item -->
+<form action="/item/create" method="post">
+
+  <input type="text" name="title">
+  <button type="submit">Add item</button>
+</form>
+
+<!-- link to the About Me page -->
+<a href="/about">About Me</a>
+<a href="/userFood">Gaame</a>
