@@ -1,7 +1,8 @@
 {% liquid
   graphql items = 'item/search'
    assign test = items
-   
+ graphql items2='item/search_by_title'
+
 %}
 
 <!-- list of items -->
@@ -52,8 +53,17 @@
 <form action="/item/create" method="post">
 
   <input type="text" name="title">
+
+<!-- {% if items.records.total_entries==0 %}
+  
+{% endif %} -->
+
+
   <button type="submit">Add item</button>
+
 </form>
+
+
 
 <!-- link to the About Me page -->
 <a href="/about">About Me</a>

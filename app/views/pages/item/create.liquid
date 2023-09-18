@@ -5,8 +5,9 @@ method: post
 
 {% liquid
 	graphql result = 'item/create', title: context.params.title
+	
 
-	if result.record.id
+	if result.record.id 
 	graphql email = 'item/email/created', data: context.params
 		redirect_to '/'
 	else
