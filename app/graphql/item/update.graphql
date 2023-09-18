@@ -1,0 +1,12 @@
+mutation edit_item($item_id: ID!, $name: String!) {
+  record_update(
+    id: $item_id
+    record: {
+      properties: { name: "name", value:$name}
+    }
+  )   {
+    id
+    name: property(name: "name")
+  }
+  
+}
