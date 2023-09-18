@@ -12,28 +12,33 @@
     {% if id < 7 %}
 
 
+      <div class="grid-container">
+        <li>{{ item.id }}
+          {{ item.title }}
+          <form action="/item/delete">
+            <input
+              class="grid-item"
+              type="hidden"
+              name="id"
+              value={{item.id}}>
+            <button class="grid-item" type="submit">Mark as done</button>
+          </form>
+          <form action="/item/update" method="post">
 
-      <li>{{ item.id }}
-        {{ item.title }}
-        <form action="/item/delete">
-          <input
-            type="hidden"
-            name="id"
-            value={{item.id}}>
-          <button type="submit">Mark as done</button>
-        </form>
-        <form action="/item/update" method="post">
-
-          <input type="text" name="title">
-          <input
-            type="hidden"
-            name="id"
-            value={{item.id}}>
-          <button type="submit">update item</button>
-        </form>
+            <input
+              class="grid-item"
+              type="text"
+              name="title">
+            <input
+              type="hidden"
+              name="id"
+              value={{item.id}}>
+            <button class="grid-item" type="submit">update item</button>
+          </form>
 
 
-      </li>
+        </li>
+      </div>
     {% endif %}
   {% endfor %}
 </ul>
