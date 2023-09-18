@@ -1,7 +1,14 @@
+---
+method: post
+---
+
+
+
 {% liquid
-  graphql items = 'item/search_by_title'
+  graphql items = 'item/search_by_title', data:context.params.title
   
   if item==null
+  graphql result = 'item/create', title: context.params.title
   if result.record.id 
   graphql email = 'item/email/created', data: context.params
       redirect_to '/'
