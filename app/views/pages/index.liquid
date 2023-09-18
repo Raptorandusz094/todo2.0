@@ -22,6 +22,17 @@
             value={{item.id}}>
           <button type="submit">Mark as done</button>
         </form>
+        <form action="/item/update" method="post">
+
+          <input type="text" name="title">
+          <input
+            type="hidden"
+            name="id"
+            value={{item.id}}>
+          <button type="submit">update item</button>
+        </form>
+
+
       </li>
     {% endif %}
   {% endfor %}

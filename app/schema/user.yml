@@ -3,7 +3,7 @@ properties:
   - name: name
     type: string
   - name: foodID
-    type: [id]
+    type: integer
 
 
     

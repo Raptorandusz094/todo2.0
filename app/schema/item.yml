@@ -2,8 +2,8 @@ name: item
 properties:
   - name: title
     type: string
-     - name: userID
-    type: [id]
+  - name: userID
+    type: integer
   
   
     

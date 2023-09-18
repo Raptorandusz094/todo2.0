@@ -1,12 +1,14 @@
 mutation edit_item($item_id: ID!, $name: String!) {
-  record_update(
+  record:record_update(
+    
     id: $item_id
     record: {
-      properties: { name: "name", value:$name}
+      properties: { name: "title", value:$name}
     }
   )   {
     id
-    name: property(name: "name")
+  
+   
   }
   
 }

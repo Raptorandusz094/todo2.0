@@ -10,6 +10,6 @@ mutation item_create(
     }
   ) {
     id
-    title: property(name: "title")
+    name: property(name: "name")
   }
 }
