@@ -1,0 +1,24 @@
+{
+  "name": "food",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i ./app/assets/styles/app.css -o ./app/assets/styles/output.css",
+    "watch": "tailwindcss -i ./app/assets/styles/app.css -o ./app/assets/styles/output.css --watch" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raptorandusz094/todo2.0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Raptorandusz094/todo2.0/issues"
+  },
+  "homepage": "https://github.com/Raptorandusz094/todo2.0#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}

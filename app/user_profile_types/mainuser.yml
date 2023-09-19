@@ -1,0 +1,6 @@
+name: mainuser
+properties:
+  - name: name
+    type: string
+      - name: email
+     type: string
