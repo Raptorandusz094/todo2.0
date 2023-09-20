@@ -1,6 +1,7 @@
-name: mainuser
+name: employee
 properties:
   - name: name
     type: string
-      - name: email
-     type: string
+  - name: email
+    type: string
+ 

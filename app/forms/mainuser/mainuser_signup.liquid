@@ -1,0 +1,54 @@
+---
+name: mainuser_sign_up
+resource: User
+resource_owner: anyone
+redirect_to: /sign-in
+fields:
+  email:
+  password:
+   recipes:
+  profiles:
+    developer:
+      properties:
+        enabled:
+          property_options:
+            default: true
+            readonly: true
+      validation:
+        presence: true
+    validation:
+      presence: true
+---
+{% form %}
+  <label for="name">Name</label>
+  <input
+    name="{{ form.fields.name }}"
+    value="{{ form.fields.first_name.value }}"
+    id="first_name"
+    type="text">
+  {% if form.errors.name %}
+    <p>{{ form.errors.name }}</p>
+  {% endif %}
+
+  <label for="email">Email</label>
+  <input
+    name="{{ form.fields.email.name }}"
+    value="{{ form.fields.email.value }}"
+    id="email"
+    type="email">
+  {% if form.errors.email %}
+    <p>{{ form.errors.email }}</p>
+  {% endif %}
+
+  <label for="password">Password</label>
+  <input
+    name="{{ form.fields.password.name }}"
+    id="password"
+    type="password">
+  {% if form.errors.password %}
+    <p>{{ form.errors.password }}</p>
+  {% endif %}
+
+
+  <button>Create</button>
+{% endform %}

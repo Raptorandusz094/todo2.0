@@ -1,0 +1,4 @@
+name: writer
+properties:
+  - name: recieps
+    type: array
