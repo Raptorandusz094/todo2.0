@@ -1,5 +1,5 @@
 ---
-name: mainuser_sign_up
+name: mainuser_signup
 resource: User
 resource_owner: anyone
 redirect_to: /sign-in
@@ -7,24 +7,15 @@ fields:
   email:
   password:
    recipes:
-  profiles:
-    developer:
-      properties:
-        enabled:
-          property_options:
-            default: true
-            readonly: true
-      validation:
-        presence: true
-    validation:
-      presence: true
+  
+      callback_actions: "{% graphql res = 'user_session_create', email: form.email, password: form.password %}"
 ---
 {% form %}
   <label for="name">Name</label>
   <input
     name="{{ form.fields.name }}"
-    value="{{ form.fields.first_name.value }}"
-    id="first_name"
+    value="{{ form.fields.name.value }}"
+    id="name"
     type="text">
   {% if form.errors.name %}
     <p>{{ form.errors.name }}</p>

@@ -1,7 +1,7 @@
 {% liquid
   graphql items = 'item/search'
    assign test = items
- graphql items2='item/search_by_title'
+ 
 
 %}
 
@@ -54,12 +54,9 @@
 
   <input type="text" name="title">
 
-<!-- {% if items.records.total_entries==0 %}
-  
-{% endif %} -->
+  <!-- {% if items.records.total_entries==0 %}
 
-
-  <button type="submit">Add item</button>
+  {% endif %} --><button type="submit">Add item</button>
 
 </form>
 
@@ -68,3 +65,4 @@
 <!-- link to the About Me page -->
 <a href="/about">About Me</a>
 <a href="/userFood">Gaame</a>
+<a href="/signup">sign-up</a>
