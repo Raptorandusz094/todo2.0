@@ -1,9 +1,9 @@
-mutation edit_item($item_id: ID!, $name: String!) {
+mutation edit_item($id: ID!, $title: String!) {
   record:record_update(
     
-    id: $item_id
+    id: $id
     record: {
-      properties: { name: "title", value:$name}
+      properties: { name: "title", value:$title}
     }
   )   {
     id

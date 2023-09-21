@@ -3,7 +3,7 @@ method: post
 ---
 
 {% liquid
-	graphql result = 'item/update', id: context.params.id ,title: context.params.title
+	graphql result = 'item/update', id: context.params.id , title: context.params.title
 
 	if result.record.id
 		redirect_to '/'

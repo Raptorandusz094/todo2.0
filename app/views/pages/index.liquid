@@ -6,41 +6,42 @@
 %}
 
 <!-- list of items -->
+<h1 class="text-2xl">hello wordl</h1>
 <ul>
   {% for item in items.records.results %}
 
     {% assign id = item.id | plus: 0 %}
-    {% if id > 20 %}
 
 
-      <div class="grid-container">
-        <li class="grid-item">{{ item.id }}
-          {{ item.title }}
-          <form action="/item/delete" method="post">
-            <input
-              class="grid-item"
-              type="hidden"
-              name="id"
-              value={{item.id}}>
-            <button class="grid-item" type="submit">Mark as done</button>
-          </form>
-          <form action="/item/update" method="post">
 
-            <input
-              class="grid-item"
-              type="text"
-              name="title">
-            <input
-              type="hidden"
-              name="id"
-              value={{item.id}}>
-            <button class="grid-item" type="submit">update item</button>
-          </form>
+    <div class="grid-container">
+      <li class="grid-item">{{ item.id }}
+        {{ item.title }}
+        <form action="/item/delete" method="post">
+          <input
+            class="grid-item"
+            type="hidden"
+            name="id"
+            value={{item.id}}>
+          <button class="grid-item" type="submit">Mark as done</button>
+        </form>
+        <form action="/item/update" method="post">
+
+          <input
+            class="grid-item"
+            type="text"
+            name="title">
+          <input
+            type="hidden"
+            name="id"
+            value={{item.id}}>
+          <button class="grid-item" type="submit">update item</button>
+        </form>
 
 
-        </li>
-      </div>
-    {% endif %}
+      </li>
+    </div>
+
   {% endfor %}
 </ul>
 
@@ -52,11 +53,9 @@
 <!-- form for adding new item -->
 <form action="/item/create" method="post">
 
-  <input type="text" name="title">
+  <input type="text" name="title"><!-- {% if items.records.total_entries==0 %}
 
-  <!-- {% if items.records.total_entries==0 %}
-
-  {% endif %} --><button type="submit">Add item</button>
+    {% endif %} --><button type="submit">Add item</button>
 
 </form>
 
@@ -65,4 +64,4 @@
 <!-- link to the About Me page -->
 <a href="/about">About Me</a>
 <a href="/userFood">Gaame</a>
-<a href="/signup">sign-up</a>
+<a href="/mainsuer/signup">sign-up</a>
