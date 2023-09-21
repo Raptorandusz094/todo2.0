@@ -7,8 +7,22 @@
     <title>To do list</title>
   </head>
   <body>
-    <h1>My to do list</h1>
+    <nav class="relative container mx-auto p-6 ">
+      <div class="flex items-center justify-between">
+        <!-- -->
+        <!--Logo -->
+        <!--   <div class="pt-2"> <img src="https://www.shutterstock.com/image-vector/food-logo-smile-label-company-250nw-1271590297.jpg" alt=""></div>-->
+        <!--menu items -->
+        <div class="hidden md:flex space-x-12 ">
+          <a href="#" class="hover:text-dargGraylishBlue">Foods</a>
+          <a href="#"class="hover:text-dargGraylishBlue">AddFood</a>
+          <a href="#"class="hover:text-dargGraylishBlue">Sign</a>
+          <a href="#"class="hover:text-dargGraylishBlue"></a>
+        </div>
+        <a href="" class="p-3 px-6 pt-2 text-white bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight">Find your faovorite food</a>
+         </div>
+      </nav>
 
-    {{ content_for_layout }}
+      {{ content_for_layout }}</body>
   </body>
 </html>
