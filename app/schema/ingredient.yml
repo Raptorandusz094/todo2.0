@@ -1,0 +1,5 @@
+name: ingredient
+
+properties:
+  - name: title
+    type: string

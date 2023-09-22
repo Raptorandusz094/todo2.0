@@ -60,9 +60,10 @@
  <!-- form for adding new item -->
 <form action="/item/create" method="post">
 
-<input type="text" name="title"><!-- {% if items.records.total_entries==0 %}
+<input class="bg- veryPaleRed" type="text" name="title"><!-- {% if items.records.total_entries==0 %}
 
-  {% endif %} --><button type="submit">Add item</button>
+  {% endif %} --><button  class="  md:block p-3 px-6 pt-2 text-white
+    bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Add item</button>
 
 </form></p1>
 
@@ -75,7 +76,7 @@
    </div>
 
 <!-- right item what is Image -->
-<div class="md:w-1/2 "
+<div class="w-64 h-40 overflow-y-auto"
 >
 <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
   {% for item in items.records.results %}
@@ -89,25 +90,13 @@
         {{ item.title }}
         <form action="/item/delete" method="post">
           <input
-            class="grid-item"
+            
             type="hidden"
             name="id"
             value={{item.id}}>
-          <button class="grid-item" type="submit">Mark as done</button>
-        </form>
-        <form action="/item/update" method="post">
-
-          <input
-            class="grid-item"
-            type="text"
-            name="title">
-          <input
-            type="hidden"
-            name="id"
-            value={{item.id}}>
-          <button class="  md:block p-3 px-6 pt-2 text-white
-          bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">update item</button>
-        </form>
+          <button  class="  md:block p-3 px-6 pt-2 text-white
+          bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Mark as done</button>
+       
 
 
       </li>
@@ -153,58 +142,6 @@
 
 
 
-<ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
-  {% for item in items.records.results %}
-
-    {% assign id = item.id | plus: 0 %}
-
-
-
-    <div class="grid-container">
-      <li class="grid-item">{{ item.id }}
-        {{ item.title }}
-        <form action="/item/delete" method="post">
-          <input
-            class="grid-item"
-            type="hidden"
-            name="id"
-            value={{item.id}}>
-          <button class="grid-item" type="submit">Mark as done</button>
-        </form>
-        <form action="/item/update" method="post">
-
-          <input
-            class="grid-item"
-            type="text"
-            name="title">
-          <input
-            type="hidden"
-            name="id"
-            value={{item.id}}>
-          <button class="  md:block p-3 px-6 pt-2 text-white
-          bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">update item</button>
-        </form>
-
-
-      </li>
-    </div>
-
-  {% endfor %}
-</ul>
-
-<!-- information shown when the list is empty -->
-{% if items.records.total_entries == 0 %}
-  <div>There are no items in the list.</div>
-{% endif %}
-
-<!-- form for adding new item -->
-<form action="/item/create" method="post">
-
-  <input type="text" name="title"><!-- {% if items.records.total_entries==0 %}
-
-    {% endif %} --><button type="submit">Add item</button>
-
-</form>
 
 
 

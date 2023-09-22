@@ -1,0 +1,15 @@
+mutation ingradient_create(
+  $title: String
+) {
+  record: record_create(
+    record: {
+      table: "ingredient"
+      properties: [
+        { name: "title", value: $title }
+      ]
+    }
+  ) {
+    id
+    name: property(name: "title")
+  }
+}
