@@ -1,15 +1,15 @@
 mutation item_create(
-  $title: String
+  $title: String 
 ) {
   record: record_create(
     record: {
       table: "item"
       properties: [
         { name: "title", value: $title }
+        
       ]
     }
   ) {
-    id
-    name: property(name: "name")
+properties
   }
 }

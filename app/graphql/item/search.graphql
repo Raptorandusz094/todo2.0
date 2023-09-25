@@ -1,8 +1,9 @@
 query item_search {
-  records: records(
+  ingredient: records(
     per_page: 100
     filter: {
-      table: { value: "item" }
+      table: { value: "ingredient"  },
+  
     }
     sort: {
       updated_at: { order: DESC }
@@ -11,7 +12,14 @@ query item_search {
     total_entries
     results {
       id
-      title: property(name: "title")
+       properties
+       item:related_record(table:"item", join_on_property:"item_id"){
+        itemname:property(name:"title")
+ 
+     id
+
+       }
+     
     }
   }
 }

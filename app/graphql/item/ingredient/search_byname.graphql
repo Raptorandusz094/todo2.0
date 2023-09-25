@@ -1,12 +1,9 @@
   query item_search_by_id (
-  $title:String
+  $id:ID!
 ) {
   records: records(
     per_page: 100
-    filter: {
- table: { value: "item" }
- properties: { name: "title", contains: $title }
-}
+    filter: {table: {value: "item"}, id: {value:  $id}}
     sort: {updated_at: {order: DESC}}
   ) {
 

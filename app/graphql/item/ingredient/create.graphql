@@ -1,15 +1,15 @@
 mutation ingradient_create(
-  $title: String
+  $title: String ,$itemID:String
 ) {
   record: record_create(
     record: {
       table: "ingredient"
       properties: [
         { name: "title", value: $title }
+         { name: "item_id", value: $itemID }
       ]
     }
   ) {
-    id
-    name: property(name: "title")
+   properties
   }
 }
