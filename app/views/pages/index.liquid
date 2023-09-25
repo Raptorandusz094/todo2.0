@@ -1,10 +1,10 @@
 {% liquid
   graphql items = 'item/search'
-   assign test = items
-  
-   graphql items2='item/search_by_title'
 
 %}
+
+
+
 
 
   <section id="hero">
@@ -55,10 +55,13 @@
     <p1 class="max-w-sm text-center text-darkGraylishBlue md:textleft">
       <!-- form for adding new item -->
       <form action="/item/create" method="post">
-
+      <a href="">Neve</a>
         <input class="bg- veryPaleRed"
           type="text"
           name="title">
+          <br>
+          <a href="">Hozzavalok</a>
+      
           <input class="bg- veryPaleRed"
           type="text"
           name="ingredient">
@@ -82,8 +85,8 @@
   </div>
 
   <!-- right item what is Image -->
-  <div class="w-64 h-40 overflow-y-auto">
-    <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+  <div class="w-64 h-40 overflow-y-auto bg-gray-950" >
+    <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400 bg-red-900">
       {% for item in items.records.results %}
 
         {% assign id = item.id | plus: 0 %}
@@ -91,8 +94,10 @@
 
 
         <div >
-          <li >{{ item.id }}
-            {{ item.title }}
+          <li >     
+          <br>  {{ item.title }}
+                {{item.id}}
+        
           <form action="/item/delete" method="post">
                 <input name="id" value={{id}}>
 
@@ -144,3 +149,5 @@
 <a href="/about">About Me</a>
 <a href="/userFood">Gaame</a>
 <a href="/mainsuer/signup">sign-up</a>
+<br><br>
+

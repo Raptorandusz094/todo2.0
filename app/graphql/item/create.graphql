@@ -9,7 +9,7 @@ mutation item_create(
         
       ]
     }
-  ) {
-properties
+  ) { id
+ title: property(name:"title")
   }
 }

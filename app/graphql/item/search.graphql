@@ -2,7 +2,7 @@ query item_search {
   ingredient: records(
     per_page: 100
     filter: {
-      table: { value: "ingredient"  },
+      table: { value: "item"  },
   
     }
     sort: {
@@ -12,14 +12,9 @@ query item_search {
     total_entries
     results {
       id
-       properties
-       item:related_record(table:"item", join_on_property:"item_id"){
-        itemname:property(name:"title")
- 
-     id
-
+      properties
+     
        }
      
     }
   }
-}
