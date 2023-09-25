@@ -8,12 +8,12 @@ method: post
 	 
 	assign ingredients=context.params.ingredient|split: ',' 
 
-	
+	  assign itemIDK=result.record.id| append: '' 
 
 	if result.record.id 
 	for ingredient in ingredients
 	
-	graphql result = 'item/ingredient/create', title: ingredient , itemID:result.record.id
+	graphql ingredientSave = 'item/ingredient/create', title: ingredient , itemID : itemIDK
 
 	endfor
 	

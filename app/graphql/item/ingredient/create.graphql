@@ -1,5 +1,5 @@
 mutation ingradient_create(
-  $title: String ,$itemID:String
+  $title: String ,$itemID:String!
 ) {
   record: record_create(
     record: {
