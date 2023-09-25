@@ -1,15 +1,12 @@
-mutation item_create(
-  $title: String 
-) {
+mutation item_create($name: String,
+  $ingredient: [String])
+   {
   record: record_create(
-    record: {
-      table: "item"
-      properties: [
-        { name: "title", value: $title }
-        
-      ]
-    }
-  ) { id
- title: property(name:"title")
+    record: {table: "item", properties: [{name: "title", value: $name}, {name: "ingredient"
+      , value_array: $ingredient}]}
+  ) {
+    id
+    properties
+  
   }
 }
