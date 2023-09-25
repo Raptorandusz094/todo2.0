@@ -1,10 +1,10 @@
-  query ingredient_search_by_title (
+  query item_search_by_id (
   $title:String
 ) {
   records: records(
     per_page: 100
     filter: {
- table: { value: "ingredient " }
+ table: { value: "ingredient" }
  properties: { name: "title", contains: $title }
 }
     sort: {updated_at: {order: DESC}}

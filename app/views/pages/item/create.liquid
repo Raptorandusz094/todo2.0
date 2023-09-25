@@ -4,9 +4,10 @@ method: post
 
 
 {% liquid
-	graphql result = 'item/create', title: context.params.title
+	
 	 
-	assign ingredients=context.params.ingredient|split: ',' 
+assign ingredients=context.params.ingredient|split: ','
+ graphql result = 'item/create', title: context.params.title
 
 	  assign itemIDK=result.record.id| append: '' 
 
