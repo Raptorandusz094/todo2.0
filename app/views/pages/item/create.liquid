@@ -5,9 +5,17 @@ method: post
 
 {% liquid
 	graphql result = 'item/create', title: context.params.title
+	 
+	assign ingredients=context.params.ingredient|split: ',' 
+
 	
 
 	if result.record.id 
+	for ingredient in ingredients
+	
+	graphql result = 'item/ingredient/create', title: ingredient ,itemID:result.record.id
+
+	endfor
 	graphql email = 'item/email/created', data: context.params
 		redirect_to '/'
 	else
