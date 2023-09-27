@@ -4,37 +4,44 @@ method: post
 
 
 {% liquid
+	graphql result = 'item/create', name: context.params.title 
 
- assign ingredientArray=context.params.ingredient|split: ','
- assign ingredientIds=[]
+	assign ingredients= context.params.ingredient|split: ','
 
- for ingred in ingredientArray
-
- graphql isIngredExist='item/ingredient/search_bytitle' ,title:ingred
-
- if isIngredExist.record.id
- 
- ingredientIds= ingredientIds|concat:isIngredExist.record.id
- 
- else
-
- graphql createIngredient= 'item/ingredient/create', title:ingred
- ingredientIds= ingredientIds|concat: createIngredient.record.id
-
- endif
-
- endfor
-
-graphql result='item/create' ,title:context.params.title ,inggredient:ingredientIds
+	
+	
 
 
-if result.record.id 
-redirect_to '/'
-graphql email = 'item/email/created', data: context.params
-else
-	echo 'Something went wrong'
-	echo result.errors
-endif
 
-   
+	
+
+	if result.record.id 
+
+	
+	
+	for ingred in ingredients
+	graphql ingredientExist='item/ingredient/search_bytitle' , title:ingred
+
+if  ingredientExist.record.id
+
+assign itemList =ingredientExist.record.itemID|append: result.record.id 
+
+  graphql updateItemList='item/ingredient/update_itemList', id:result.record.id ,item_id:itemList
+
+  else
+
+  graphql createIngredient='item/ingredient/create' ,title:ingred ,itemID:result.record.id
+
+  endif
+
+	endfor
+	
+	redirect_to '/'
+	
+	
+	
+	else
+		echo 'Something went wrong'
+		echo result.errors
+	endif
 %}

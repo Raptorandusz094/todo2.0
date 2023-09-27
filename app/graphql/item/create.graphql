@@ -1,9 +1,8 @@
 mutation item_create($name: String,
-  $ingredient: [String])
+ )
    {
   record: record_create(
-    record: {table: "item", properties: [{name: "title", value: $name}, {name: "ingredient"
-      , value_array: $ingredient}]}
+    record: {table: "item", properties: [{name: "title", value: $name}]}
   ) {
     id
     properties
