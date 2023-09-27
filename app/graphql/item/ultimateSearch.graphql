@@ -2,20 +2,14 @@ query ingredients ($title:String){
   ingredients: records(
     filter: {
       table: { value: "ingredient" }
-      
+      properties: { name: "title", contains: $title }
     },
     per_page: 200
   ) {
     total_entries
     results {
       properties
-      food:
-      
-      
-      related_record(table: "item", join_on_property: "item_id",
-        filter:{
-          properties:{name:"title" ,contains:$title}
-        }
+      food: related_record(table: "item", join_on_property: "item_id"
       
       ) {
     
