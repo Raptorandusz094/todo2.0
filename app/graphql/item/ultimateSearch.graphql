@@ -1,17 +1,23 @@
-query ingredients ($title:String){
+query ingredients($title:String, $ingredient:[String!]) {
   ingredients: records(
     filter: {
       table: { value: "ingredient" }
-      properties: { name: "title", contains: $title }
+       properties:{name:"iten" value_in:$ingredient}
+        
+      
     },
     per_page: 200
   ) {
     total_entries
     results {
-      properties
-      food: related_record(table: "item", join_on_property: "item_id"
-      
-      ) {
+      id  
+      food:
+      related_record(table: "item", join_on_property: "item_id",
+       
+        filter:{
+         properties:{name:"title" value:$title}
+        }
+      ) {id
     
         properties
       }
