@@ -1,0 +1,37 @@
+method: post
+---
+
+
+
+{% liquid
+    assigign ingreidentArray=context.param.ingredient |split: ','
+	
+	
+	
+	
+	{% for ingred in ingreidentArray %}
+		graphql isIngredientExist= 'item/ingredient/search_bytitle' ,title:ingred
+		{% if  isIngredientExist %}
+		ingreidentArray=	ingreidentArray|append :isIngredientExist.record.id
+		{% else %}
+			makeNewIngredient=/item/ingredient/create',title:ingred
+			ingreidentArray=ingreidentArray|append :makeNewIngredient.result.record.id
+			
+		{% endif %}
+
+		
+	 {% endfor %}
+
+
+
+
+	graphql result = 'item/create', title: context.params.title ,itemID:ingreidentArray
+	
+
+	if result.record.id 
+	redirect_to '/'
+	else
+		echo 'Something went wrong'
+		echo result.errors
+	endif
+%}

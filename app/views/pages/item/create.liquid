@@ -4,22 +4,37 @@ method: post
 
 
 {% liquid
-	
-	 
-assign ingredients=context.params.ingredient|split: ','
- graphql result = 'item/create', title: context.params.title
 
-	  assign itemIDK=result.record.id| append: '' 
+ assign ingredientArray=context.params.ingredient|split: ','
+ assign ingredientIds=[]
 
-	if result.record.id 
-	for ingredient in ingredients
-	
-	graphql ingredientSave = 'item/ingredient/create', title: ingredient , itemID : itemIDK
+ for ingred in ingredientArray
 
-	endfor
-	
-	graphql email = 'item/email/created', data: context.params
-		redirect_to '/'
+ graphql isIngredExist='item/ingredient/search_bytitle' ,title:ingred
 
-	endif
+ if isIngredExist.record.id
+ 
+ ingredientIds= ingredientIds|concat:isIngredExist.record.id
+ 
+ else
+
+ graphql createIngredient= 'item/ingredient/create', title:ingred
+ ingredientIds= ingredientIds|concat: createIngredient.record.id
+
+ endif
+
+ endfor
+
+graphql result='item/create' ,title:context.params.title ,inggredient:ingredientIds
+
+
+if result.record.id 
+redirect_to '/'
+graphql email = 'item/email/created', data: context.params
+else
+	echo 'Something went wrong'
+	echo result.errors
+endif
+
+   
 %}

@@ -1,4 +1,20 @@
-<h2>About me</h2>
-<p>
-  Hello! My name is Andris and this is my first app built on platformOS
-</p>
+{% liquid
+  graphql items = 'item/search'
+%}
+
+<!-- list of items -->
+<ul>
+  {% for item in items.records.results %}
+    <li>
+      {{ item.id }}
+      <form action="">
+        <button type="submit">Mark as done</button>
+      </form>
+    </li>
+  {% endfor %}
+</ul>
+
+<!-- information shown when the list is empty -->
+{% if items.records.total_entries != 0 %}
+  <div>There are no items in the list.</div>
+{% endif %}

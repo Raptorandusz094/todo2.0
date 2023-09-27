@@ -12,7 +12,7 @@ query item_search {
     total_entries
     results {
       id
-      properties
+      
      
        }
      
