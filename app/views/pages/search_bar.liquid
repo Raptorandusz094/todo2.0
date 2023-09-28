@@ -25,7 +25,19 @@
       placeholder="Search Mockups, Logos..."
       required>
     <button class="  md:block p-3 px-6 pt-2 text-white
-                      bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Submit</button>
+                            bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Submit</button>
 
   </div>
 </form>
+
+graphql items="item/ultimateSearch" ,title:{{ context.params.search }}
+
+
+
+<div class="flex justify-center mt-20">
+  <ul class="text-center">
+    {% for item in items.results.record %}
+      <li class="mb-20">{{ item.id }}</li>
+    {% endfor %}
+  </ul>
+</div>
