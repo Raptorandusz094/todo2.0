@@ -4,9 +4,9 @@ method: post
 
 
 {% liquid
-	graphql result = 'itemt/ingredient/create', title: context.params.title ,itemID:context.params.itemID
+	graphql result = 'itemt/ingredient/create', title: context.params.title 
 
-	assig ingredients
+
 	
 
 	if result.record.id 

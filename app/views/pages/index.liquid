@@ -27,7 +27,7 @@
       </p1>
 
       <div class="flex justify-center md:justify-start">
-        <a href="" class="  md:block p-3 px-6 pt-2 text-white
+        <a href="/search_bar" class="  md:block p-3 px-6 pt-2 text-white
               bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight">Find your faovorite food</a>
       </div>
 
@@ -77,15 +77,15 @@
     </p1>
 
     <div class="flex justify-center md:justify-start">
-      <a href="" class="  md:block p-3 px-6 pt-2 text-white
+      <a href="/search_bar" class="  md:block p-3 px-6 pt-2 text-white
             bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight">Find your faovorite food</a>
     </div>
 
   </div>
 
   <!-- right item what is Image -->
-  <div class="overflow-y-auto bg-gray-950" >
-    <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400 bg-red-900">
+  <div class="flex justify-center mt-20" >
+    <ul class="text-ceter">
       {% for item in items.records.results %}
 
         {% assign id = item.id | plus: 0 %}
@@ -93,7 +93,7 @@
 
 
         <div >
-          <li >     
+          <li  class="mb-20">     
           <br>  {{ item.title }}
                 {{item.id}}
         
@@ -145,8 +145,11 @@
  
 
 <!-- link to the About Me page -->
-<a href="/about">About Me</a>
+<a href="/about">About Me</a> 
+
+<br>
 <a href="/search_bar">Find Food</a>
+<br>
 <a href="/mainsuer/signup">sign-up</a>
 <br><br>
 

@@ -1,5 +1,5 @@
 query searchBar( $ingredient:[String!],$title:String) {
-  ingredients: records(
+  foods: records(
     filter: {
       table: { value: "item" }
       properties:[
@@ -14,7 +14,7 @@ query searchBar( $ingredient:[String!],$title:String) {
     results {
       id  
       properties
-      food:
+      ingredient:
       related_records(table: "ingredient", join_on_property: "ingredient_id",foreign_property:"id"
        
        
