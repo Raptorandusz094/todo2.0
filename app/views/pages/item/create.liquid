@@ -6,20 +6,16 @@ method: post
 {% liquid
 	graphql result = 'item/create', name: context.params.title 
 
-	assign ingredients= context.params.ingredient|split: ','
+	assign ingredients= context.params.ingredient | split: ','
 
 	
 	
-
-
-
-	
-
-	if result.record.id 
+if result.record.id 
 
 	
 	
 	for ingred in ingredients
+	
 	graphql ingredientExist='item/ingredient/search_bytitle' , title:ingred
 
 if  ingredientExist.record.id

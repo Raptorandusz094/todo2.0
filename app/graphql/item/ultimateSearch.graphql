@@ -2,7 +2,7 @@ query ingredients($title:String, $ingredient:[String!]) {
   ingredients: records(
     filter: {
       table: { value: "ingredient" }
-       properties:{name:"iten" value_in:$ingredient}
+       properties:{name:"item_id" array_contains:$ingredient}
         
       
     },
@@ -19,7 +19,7 @@ query ingredients($title:String, $ingredient:[String!]) {
         }
       ) {id
     
-        properties
+      properties
       }
     }
   }
