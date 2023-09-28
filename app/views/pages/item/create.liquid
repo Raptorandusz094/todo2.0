@@ -35,7 +35,7 @@ method: post
 	
    endfor
 	
-	graphql result = 'item/create', title: context.params.title ,ingredientID:ingredientIDs
+	graphql result = 'item/create', title: context.params.title , ingredientID:  "ingredientIDs"
 	
 	if result.record.id
 	redirect_to '/'
