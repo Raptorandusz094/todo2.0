@@ -3,7 +3,7 @@ properties:
   - name: title
     type: string
   - name: ingredient_id
-    type: string
+    type: array
 
 
   

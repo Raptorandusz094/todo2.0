@@ -1,26 +1,16 @@
-query ingredients ($title:String){
-  ingredients: records(
+  query item  {
+  records: records(
+    per_page: 100
     filter: {
-      table: { value: "ingredient" }
-      
-    },
-    per_page: 200
+ table: { value: "item" }
+
+}
+    sort: {updated_at: {order: DESC}}
   ) {
-    total_entries
+
     results {
-      properties
-      food:
-      
-      
-      related_record(table: "item", join_on_property: "item_id",
-        filter:{
-          properties:{name:"title" ,contains:$title}
-        }
-      
-      ) {
-    
-        properties
-      }
+      id
+      title: property(name: "title")
     }
   }
 }

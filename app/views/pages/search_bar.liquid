@@ -1,4 +1,4 @@
-<form action="/item/search_by_title">
+<form action="/search_bar">
   <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
   <div class="relative">
     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -27,23 +27,3 @@
 
   </div>
 </form>
-{% liquid
-       graphql items='item/ultimateSearch' , title:context.param.search
-
-       
-    %}
-<ul>
-  {% for item in items.records.results %}
-    <li>
-      {{ item.id }}
-      <form action="">
-        <button type="submit">Mark as done</button>
-      </form>
-    </li>
-  {% endfor %}
-</ul>
-
-<!-- information shown when the list is empty -->
-{% if items %}
-  <div>There are no items in the list.</div>
-{% endif %}

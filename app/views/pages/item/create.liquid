@@ -5,34 +5,43 @@ method: post
 
 {% liquid
 	
-     assign ingredientIDs=[]
+    assign ingredientIds="[]"|parse_json
 	assign ingredients= context.params.ingredient | split: ','
 
+	
+	
+	
+	
 	for ingred in ingredients
 	
 	graphql ingredientExist='item/ingredient/search_bytitle' , title:ingred
 	
-    if  ingredientExist.records.total_entries == 0
+    
+	if  ingredientExist.records.total_entries == 0
 
-       graphql createIngredient='item/ingredient/create' ,title:ingred 
+ 
+	graphql createIngredient='item/ingredient/create' ,title:ingred 
+	  
 
-        ingredientIDs=ingredientIDs|concat: createIngredient.records.id 
+     assign  ingredientIds=ingredientIds| add_to_array:createIngredient.record.id
 
 	else 
-	ingredientIDs=ingredientIDs|concat: ingredientExist.records.id 
+	 assign ingredientIds=ingredientIds|concat: ingredientExist.record.id 
 
 
+	
+  
 	 endif
-
-	endfor
 	
+   endfor
 	
-	graphql result = 'item/create', name: context.params.title ,ingredientID:ingredientIDs
+	graphql result = 'item/create', title: context.params.title ,ingredientID:ingredientIDs
+	
+	if result.record.id
 	redirect_to '/'
 	
 	
-	
-	else
+else
 		echo 'Something went wrong'
 		echo result.errors
 	endif
