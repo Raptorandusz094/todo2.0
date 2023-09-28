@@ -17,6 +17,7 @@
       </svg>
     </div>
     <input
+      name="search"
       type="search"
       id="default-search"
       class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -27,7 +28,7 @@
   </div>
 </form>
 {% liquid
-       graphql items='item/search_by_title' , title:context.param.search
+       graphql items='item/ultimateSearch' , title:context.param.search
 
        
     %}
@@ -43,6 +44,6 @@
 </ul>
 
 <!-- information shown when the list is empty -->
-{% if items.records.total_entries == 0 %}
+{% if items %}
   <div>There are no items in the list.</div>
 {% endif %}

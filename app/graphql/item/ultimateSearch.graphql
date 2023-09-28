@@ -1,8 +1,8 @@
-query ingredients($title:String, $ingredient:[String!]) {
+query searchBar($title:String, $ingredient:[String!]) {
   ingredients: records(
     filter: {
-      table: { value: "ingredient" }
-       properties:{name:"item_id" array_contains:$ingredient}
+      table: { value: "item" }
+       properties:{name:"ingredient_id" array_contains:$ingredient}
         
       
     },
@@ -11,8 +11,9 @@ query ingredients($title:String, $ingredient:[String!]) {
     total_entries
     results {
       id  
+      properties
       food:
-      related_record(table: "item", join_on_property: "item_id",
+      related_record(table: "item", join_on_property: "ingredient_id",
        
         filter:{
          properties:{name:"title" value:$title}

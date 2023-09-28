@@ -1,15 +1,11 @@
-mutation ingradient_create(
-  $title: String ,$itemID:[String!]
-) {
+mutation ingredient_create($name: String,
+ )
+   {
   record: record_create(
-    record: {
-      table: "ingredient"
-      properties: [
-        { name: "title", value: $title }
-         { name: "item_id", value_array: $itemID }
-      ]
-    }
+    record: {table: "ingredient", properties: [{name: "title", value: $name}]}
   ) {
-   properties
+    id
+    properties
+  
   }
 }

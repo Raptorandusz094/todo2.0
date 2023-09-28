@@ -4,34 +4,30 @@ method: post
 
 
 {% liquid
-	graphql result = 'item/create', name: context.params.title 
-
+	
+     assign ingredientIDs=[]
 	assign ingredients= context.params.ingredient | split: ','
 
-	
-	
-if result.record.id 
-
-	
-	
 	for ingred in ingredients
 	
 	graphql ingredientExist='item/ingredient/search_bytitle' , title:ingred
+	
+    if  ingredientExist.records.total_entries == 0
 
-if  ingredientExist.record.id
+       graphql createIngredient='item/ingredient/create' ,title:ingred 
 
-assign itemList =ingredientExist.record.itemID | concat: result.record.id 
+        ingredientIDs=ingredientIDs|concat: createIngredient.records.id 
 
-  graphql updateItemList='item/ingredient/update_itemList', id: result.record.id ,item_id:itemList
+	else 
+	ingredientIDs=ingredientIDs|concat: ingredientExist.records.id 
 
-  else
 
-  graphql createIngredient='item/ingredient/create' ,title:ingred ,itemID:result.record.id
-
-  endif
+	 endif
 
 	endfor
 	
+	
+	graphql result = 'item/create', name: context.params.title ,ingredientID:ingredientIDs
 	redirect_to '/'
 	
 	
