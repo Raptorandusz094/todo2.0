@@ -1,6 +1,6 @@
   query item  {
   records: records(
-    per_page: 100
+    per_page:6 
     filter: {
  table: { value: "item" }
 

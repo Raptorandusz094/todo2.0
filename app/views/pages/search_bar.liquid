@@ -25,39 +25,31 @@
       placeholder="Search Mockups, Logos..."
       required>
     <button class="  md:block p-3 px-6 pt-2 text-white
-                                                                                                                                                                                                                                                                                                                            bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Submit</button>
+                                                                                                                                                                                                                                                                                                                                                                                                                bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Submit</button>
 
   </div>
 </form>
 {% liquid  
-  graphql items="item/ultimateSearch" title : context.params.search 
+  graphql items="item/search"
 %}
 
 {% for item in items.records.results %}
 
-  {%liquid log items.total_entries %}
-{% endfor %}
+  <div class="mb-4  w-100px h-300px">
+    <div class=" p-4 rounded-lg bg-brightPurpleLight">
+      <!-- Card 1 with fixed-sized image, title, and ingredients <img  src= {{ item.img_url }} alt="Card Image" class="w-40 h-40 mb-2">-->
+      <img
+        src="https://via.placeholder.com/150"
+        class="w-24 h-24 mb-2"
+        alt="">
+      <p class="text-xl mb-2">{{ item.title }}</p>
 
-{% if items.total_entries != 0 %}
-  fasza
-
-{% endif %}
-
-<div class="flex justify-center">
-  <div class="flex">
-    <!-- First Card -->
-    <div class="bg-gray-300 p-4 m-2" style="width: 100px;">
-      Card 1
-    </div>
-
-    <!-- Second Card -->
-    <div class="bg-gray-300 p-4 m-2" style="width: 100px;">
-      Card 2
-    </div>
-
-    <!-- Third Card -->
-    <div class="bg-gray-300 p-4 m-2" style="width: 100px;">
-      Card 3
     </div>
   </div>
-</div>
+
+{% endfor %}
+
+{% if items.total_entries == 0 %}
+  No item in to the list
+
+{% endif %}
