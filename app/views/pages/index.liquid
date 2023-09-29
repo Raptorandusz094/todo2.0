@@ -7,7 +7,7 @@
 
 
   <div class="container flex flex-col 
-                                                                                        reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+                                                                                                                                                                                                                            reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
     <!-- Lefti Item-->
     <div class="flex flex-col md-32 space-y-12 md:w-1/2">
       <h1 class="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left">
@@ -19,12 +19,12 @@
       <p1 class="max-w-sm text-center text-darkGraylishBlue md:textleft">
         Ehes vagy , es nem tudod mit ennel ,
         mi segitunk , hogy olcson megtalalad a neked valo kajat,
-                                                                                                                  ez ennyire egyszeru
+                                                                                                                                                                                                                                                                                                  ez ennyire egyszeru
       </p1>
 
       <div class="flex justify-center md:justify-start">
         <a href="/search_bar" class="  md:block p-3 px-6 pt-2 text-white
-                                                                                                                                                bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight">Find your faovorite food</a>
+                                                                                                                                                                                                                                                                                                                                                                            bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight">Find your faovorite food</a>
       </div>
 
     </div>
@@ -37,7 +37,7 @@
 
 
   <div class="container flex flex-col 
-                                                                                  reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+                                                                                                                                                                                                                      reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
     <!-- Lefti Item-->
     <div class="flex flex-col md-32 space-y-12 md:w-1/2">
 
@@ -49,7 +49,7 @@
 
 
         <div class="container flex flex-col 
-                                                                                                                                                              reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+                                                                                                                                                                                                                                                                                                                                                                                                                                      reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
           <!-- Lefti Item-->
           <div class="flex flex-col md-32 space-y-12 md:w-1/1">
             <div class="max-w-md text-2xl  text-center md:text-5xl md:text-left">
@@ -84,7 +84,7 @@
                       class="w-full  h-10 p-2 bg-gray-200 rounded">
                   </div>
                   <button class="  md:block p-3 px-6 pt-2 text-white
-                                                                                                                                                                                                                                      bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Add item</button>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Add item</button>
                 </form>
               </div>
             </div>
@@ -103,6 +103,8 @@
 
       {% for item in items.records.results %}
 
+        {% assign itemId = item.id %}
+
 
         <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
           <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -117,13 +119,14 @@
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ item.title }}</h5>
               </a>
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"></p>
-              <form action="item/delete" method="post">
+              <form action="item/delete.liquid" method="post">
                 <input
                   type="hidden"
+
                   name="id"
                   value="{{ item.id }}">
                 <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center
-                                                                                                                                                                                                                                         text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   Delete
                   <path
                     stroke="currentColor"
@@ -152,7 +155,7 @@
       <button
         href="/search_bar"
         class="  md:block p-3 px-6 pt-2 text-white
-                                                                                                                                          bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight"
+                                                                                                                                                                                                                                                                                                                                                                      bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight"
         type="submit">Search</button>
 
 

@@ -1,75 +1,22 @@
-<section id="hero2">
-  <!-- flex container -->
-
-
-  <div class="container flex flex-col 
-                      reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
-    <!-- Lefti Item-->
-    <div class="flex flex-col md-32 space-y-12 md:w-1/2">
-      <div class="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left">
-
-      <div class="bg-purple-800 p-8 rounded-lg max-w-md w-full mr-8">
-        <form action="/item/create" method="post">
-          <div class="mb-4">
-            <label class="block text-white mb-2" for="title">Title:</label>
-            <input type="text" id="title" name="title" placeholder="Enter title" class="w-full p-2 bg-gray-200 rounded">
-          </div>
-          <div class="mb-4">
-            <label class="block text-white mb-2" for="ingredients">Ingredients:</label>
-            <input type="text" id="ingredients" name="ingredient" placeholder="Enter ingredients" class="w-full p-2 bg-gray-200 rounded">
-          </div>
-      <button class="  md:block p-3 px-6 pt-2 text-white
-      bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Add item</button>
-        </form>
-      </div></div>
-      </div>
-   
-    </div>
-
-    <!-- right item what is Image -->
-    <div class="md:w-1/2 ">
-      <img src="https://cdn.britannica.com/36/123536-050-95CB0C6E/Variety-fruits-vegetables.jpg" alt="">
-    </div>
-  </div>
-  <div  class="flex flex-row md-32 space-x-12 md:w-1/2">
-  <div class="mb-4">
-    <div class="bg-white p-4 rounded-lg">
-      <!-- Card 1 with fixed-sized image, title, and ingredients -->
-      <img src="https://via.placeholder.com/150" alt="Card Image" class="w-24 h-24 mb-2">
-      <p class="text-xl mb-2">Card 1 Title</p>
-      <ul>
-        <li>Ingredient 1</li>
-        <li>Ingredient 2</li>
-        <li>Ingredient 3</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="mb-4">
-    <div class="bg-white p-4 rounded-lg">
-      <!-- Card 2 with fixed-sized image, title, and ingredients -->
-      <img src="https://via.placeholder.com/150" alt="Card Image" class="w-24 h-24 mb-2">
-      <p class="text-xl mb-2">Card 2 Title</p>
-      <ul>
-        <li>Ingredient 1</li>
-        <li>Ingredient 2</li>
-        <li>Ingredient 3</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="mb-4">
-    <div class="bg-white p-4 rounded-lg">
-      <!-- Card 3 with fixed-sized image, title, and ingredients -->
-      <img src="https://via.placeholder.com/150" alt="Card Image" class="w-24 h-24 mb-2">
-      <p class="text-xl mb-2">Card 3 Title</p>
-      <ul>
-        <li>Ingredient 1</li>
-        <li>Ingredient 2</li>
-        <li>Ingredient 3</li>
-      </ul>
+for ingred in ingredients
+	
+	graphql ingredientExist='item/ingredient/search_bytitle' , title:ingred
+	
     
+	if  ingredientExist.records.total_entries == 0
+
+ 
+	graphql createIngredient='item/ingredient/create' ,title:ingred 
+	  
+
+     assign  ingredientIds=ingredientIds| add_to_array:createIngredient.record.id
+
+	else 
+	 assign ingredientIds=ingredientIds|concat: ingredientExist.record.id 
+
+
+	
   
-</div>
-</div>
-</div></section>
+	 endif
+	
+   endfor

@@ -4,7 +4,7 @@ query searchBar( $ingredient:[String!],$title:String) {
       table: { value: "item" }
       properties:[
       
-      {name:"ingredient_id" value_in:$ingredient}
+      {name:"ingredient_id" array_contains:$ingredient}
       {name:"title" contains:$title}
         ]
        },
