@@ -16,7 +16,7 @@ method: post
 
 	
 	
-graphql result = 'item/create', title: context.params.title , ingredientID:"ingredientIDs", img:"img_url"
+graphql result = 'item/create', title: context.params.title ,  img : context.params.img_url
 	
 	if result.record.id
 	redirect_to '/'

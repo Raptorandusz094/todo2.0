@@ -7,7 +7,7 @@
 
 
   <div class="container flex flex-col 
-                                                                                                                                                                                                                            reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+                                                                                                                                                                                                                                                                      reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
     <!-- Lefti Item-->
     <div class="flex flex-col md-32 space-y-12 md:w-1/2">
       <h1 class="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left">
@@ -19,12 +19,12 @@
       <p1 class="max-w-sm text-center text-darkGraylishBlue md:textleft">
         Ehes vagy , es nem tudod mit ennel ,
         mi segitunk , hogy olcson megtalalad a neked valo kajat,
-                                                                                                                                                                                                                                                                                                  ez ennyire egyszeru
+                                                                                                                                                                                                                                                                                                                                                          ez ennyire egyszeru
       </p1>
 
       <div class="flex justify-center md:justify-start">
         <a href="/search_bar" class="  md:block p-3 px-6 pt-2 text-white
-                                                                                                                                                                                                                                                                                                                                                                            bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight">Find your faovorite food</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight">Find your faovorite food</a>
       </div>
 
     </div>
@@ -37,7 +37,7 @@
 
 
   <div class="container flex flex-col 
-                                                                                                                                                                                                                      reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+                                                                                                                                                                                                                                                                reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
     <!-- Lefti Item-->
     <div class="flex flex-col md-32 space-y-12 md:w-1/2">
 
@@ -49,13 +49,13 @@
 
 
         <div class="container flex flex-col 
-                                                                                                                                                                                                                                                                                                                                                                                                                                      reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
           <!-- Lefti Item-->
           <div class="flex flex-col md-32 space-y-12 md:w-1/1">
             <div class="max-w-md text-2xl  text-center md:text-5xl md:text-left">
 
               <div class="bg-purple-800 p-8 rounded-lg max-w-md w-full mr-8">
-                <form action="/item/create" method="post">
+                <form action="item/create.liquid" method="post">
                   <div class="mb-4">
                     <label class="block text-white mb-2 text-2xl" for="title">Title:</label>
                     <input
@@ -78,13 +78,13 @@
                     <label class="block text-white mb-2 text-2xl" for="title">Title:</label>
                     <input
                       type="text"
-                      id="title"
+                      id="img_url"
                       name="img_url"
                       placeholder="Enter imgurl"
                       class="w-full  h-10 p-2 bg-gray-200 rounded">
                   </div>
                   <button class="  md:block p-3 px-6 pt-2 text-white
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Add item</button>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Add item</button>
                 </form>
               </div>
             </div>
@@ -126,7 +126,7 @@
                   name="id"
                   value="{{ item.id }}">
                 <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   Delete
                   <path
                     stroke="currentColor"
@@ -155,7 +155,7 @@
       <button
         href="/search_bar"
         class="  md:block p-3 px-6 pt-2 text-white
-                                                                                                                                                                                                                                                                                                                                                                      bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight"
+                                                                                                                                                                                                                                                                                                                                                                                                                                            bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight"
         type="submit">Search</button>
 
 
