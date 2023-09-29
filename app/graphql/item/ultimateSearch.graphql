@@ -1,4 +1,4 @@
-query searchBar( $ingredient:[String!],$title:String) {
+query searchBar( $ingredient:[String!],$title:String="") {
   foods: records(
     filter: {
       table: { value: "item" }
