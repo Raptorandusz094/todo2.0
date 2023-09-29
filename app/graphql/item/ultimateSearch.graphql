@@ -5,7 +5,7 @@ query searchBar( $ingredient:[String!],$title:String) {
       properties:[
       
       {name:"ingredient_id" value_in:$ingredient}
-      {name:"title" value_in:$title}
+      {name:"title" contains:$title}
         ]
        },
     per_page: 200
@@ -19,7 +19,8 @@ query searchBar( $ingredient:[String!],$title:String) {
        
        
         
-      ) {id
+      )
+       {id
     
       properties
       }

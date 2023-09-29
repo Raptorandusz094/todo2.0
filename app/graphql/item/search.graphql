@@ -11,6 +11,8 @@
     results {
       id
       title: property(name: "title")
+      img_url: property(name:"img_url")
+      
     }
   }
 }

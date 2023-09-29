@@ -4,6 +4,8 @@ properties:
     type: string
   - name: ingredient_id
     type: array
+  - name: img_url
+    type: string
 
 
   
