@@ -2,7 +2,7 @@
   records: records(
     per_page:6 
     filter: {
- table: { value: "ingredients" }
+ table: { value: "ingredient" }
 
 }
     sort: {updated_at: {order: DESC}}
