@@ -12,13 +12,13 @@ method: post
 	
 	for ingred in ingredients
 	
-	graphql ingredientExist='item/ingredient/search_bytitle' , title:ingred
+	graphql ingredientExist='item/ingredient/search_bytitle' , title : ingred
 	
     
 	if  ingredientExist.records.total_entries == 0
 
  
-	graphql createIngredient='item/ingredient/create' ,title:ingred 
+	graphql createIngredient='item/ingredient/create' , title : ingred 
 	  
 
      assign  ingredientIds=ingredientIds| add_to_array:createIngredient.record.id
@@ -37,7 +37,7 @@ method: post
 
 	
 	
-     graphql result = 'item/create', title: context.params.title ,  img : context.params.img_url ,ingredientID: ingredientIds
+     graphql result = 'item/create', title: context.params.title ,  img : context.params.img_url  ,ingredientID: ingredientIds
 	
 	if result.record.id
 	redirect_to '/'

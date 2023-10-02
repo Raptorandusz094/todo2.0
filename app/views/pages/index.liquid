@@ -1,5 +1,6 @@
 {% liquid
   graphql items = 'item/search'
+
 %}
 
   <section id="hero">
@@ -63,7 +64,7 @@
                       id="title"
                       name="title"
                       placeholder="Enter title"
-                      class="w-full  h-10 p-2 bg-gray-200 rounded">
+                      class="w-full  h-10 p-2 bg-gray-200 rounded text-base">
                   </div>
                   <div class="mb-4">
                     <label class="block text-white mb-2 text-2xl" for="ingredients">Ingredients:</label>
@@ -72,16 +73,16 @@
                       id="ingredients"
                       name="ingredient"
                       placeholder="Enter ingredients"
-                      class="w-full h-10 p-2 bg-gray-200 rounded">
+                      class="w-full h-10 p-2 bg-gray-200 rounded text-base">
                   </div>
                   <div class="mb-4">
-                    <label class="block text-white mb-2 text-2xl" for="title">Title:</label>
+                    <label class="block text-white mb-2 text-2xl" for="title">Img:</label>
                     <input
                       type="text"
                       id="img_url"
                       name="img_url"
                       placeholder="Enter imgurl"
-                      class="w-full  h-10 p-2 bg-gray-200 rounded">
+                      class="w-full  h-10 p-2 bg-gray-200 rounded text-base">
                   </div>
                   <button class="  md:block p-3 px-6 pt-2 text-white
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Add item</button>
@@ -110,18 +111,25 @@
           <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
               <img
-                class="rounded-t-lg"
-                src="{{item.img_url}}"
+                class=" rounded-t-lg w-9=100 h-60"
+                src="{{ item.img_url}}"
                 alt="" />
             </a>
             <div class="p-5">
               <a href="#">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ item.id}}{{ item.title }}</h5>
               </a>
+              <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {% for ingredient in items.records.results.ingredients %}
+                  
+               
+                <li class="bg-purple-500 p-2 text-white rounded">{{ ingredient.title}}</li>
+             
+               {% endfor %}
+              </ul>
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"></p>
               <form action="item/delete.liquid" method="post">
-                <button type="submit">
-                  <input
+                <button  type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"> <input
                     type="hidden"
 
                     name="itemid"
@@ -135,7 +143,8 @@
                       stroke-width="2"
                       d="M1 5h12m0 0L9 1m4 4L9 9" />
                   </svg>
-                </button>
+                </button></button>
+                 
               </a>
             
             </form>

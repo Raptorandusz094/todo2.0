@@ -12,6 +12,17 @@
       id
       title: property(name: "title")
       img_url: property(name:"img_url")
+      ingredients:
+      related_records(table: "ingredient", join_on_property: "ingredient_id",foreign_property:"id"
+       
+       
+        
+      )
+       {id
+    
+      properties
+      }
+
       
     }
   }
