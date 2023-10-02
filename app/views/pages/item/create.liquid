@@ -6,7 +6,7 @@ method: post
 {% liquid
 	
     assign ingredientIds="[]"|parse_json
-	assign ingredients= context.params.ingredient | split: ','
+	assign ingredients= context.params.ingredients | split: ','
 
 	
 	
@@ -24,7 +24,7 @@ method: post
      assign  ingredientIds=ingredientIds| add_to_array:createIngredient.record.id
 
 	else 
-	 assign ingredientIds=ingredientIds|concat: ingredientExist.record.id 
+	 assign ingredientIds=ingredientIds|add_to_array: ingredientExist.record.id 
 
 
 	
