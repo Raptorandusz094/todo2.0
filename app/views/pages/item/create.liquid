@@ -5,10 +5,10 @@ method: post
 
 {% liquid
 	
-    assign ingredientIds="[]" | parse_json
+    assign ingredients="[]" | parse_json
 	assign ingredients= context.params.ingredients | split: ','
 
-	assign test="" |split: ","
+	
 
 	
 	
@@ -25,10 +25,10 @@ method: post
 	
 	  
 
-     assign  test=test | array_add : createIngredient.records.results.first.id
+     assign  ingredients=ingredients | array_add : createIngredient.record.id
 
 	else 
-	 assign test=test | array_add: ingredientExist.record.results.first.id
+	 assign ingredients=ingredients | array_add: ingredientExist.records.id
 
 
 	
