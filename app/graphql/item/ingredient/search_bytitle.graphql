@@ -12,7 +12,7 @@
 
     results {
       id
-      itemID: property(name: "item_id")
+     properties
     }
   }
 }

@@ -4,6 +4,7 @@ mutation ingredient_create($title: String,
   record: record_create(
     record: {table: "ingredient", properties: [{name: "title", value: $title}]}
   ) {
+    results:
     id
     properties
   
