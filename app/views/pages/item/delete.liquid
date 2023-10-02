@@ -3,7 +3,7 @@ method: post
 ---
 
 {% liquid
-	graphql result = 'item/delete', itemid: context.params.id
+	graphql result = 'item/delete', itemid: context.params.itemid
 
 	if result.record.id
 		redirect_to '/'
