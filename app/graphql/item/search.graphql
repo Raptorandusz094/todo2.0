@@ -20,7 +20,7 @@
       )
        {id
     
-      properties
+       title: property(name: "title")
       }
 
       

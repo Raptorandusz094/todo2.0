@@ -25,7 +25,7 @@
 
       <div class="flex justify-center md:justify-start">
         <a href="/search_bar" class="  md:block p-3 px-6 pt-2 text-white
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight">Find your faovorite food</a>
+   bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight">find your favorite food</a>
       </div>
 
     </div>
@@ -84,8 +84,8 @@
                       placeholder="Enter imgurl"
                       class="w-full  h-10 p-2 bg-gray-200 rounded text-base">
                   </div>
-                  <button class="  md:block p-3 px-6 pt-2 text-white
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Add item</button>
+                  <button class="  md:block p-3 px-6 pt-2 text-white   
+                   bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Add item</button>
                 </form>
               </div>
             </div>
@@ -119,14 +119,15 @@
               <a href="#">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ item.id}}{{ item.title }}</h5>
               </a>
-              <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {% for ingredient in items.records.results.ingredients %}
+              <ul class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4">
+                {% for ingredient in item.ingredients%}
                   
                
                 <li class="bg-purple-500 p-2 text-white rounded">{{ ingredient.title}}</li>
              
                {% endfor %}
               </ul>
+              
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"></p>
               <form action="item/delete.liquid" method="post">
                 <button  type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"> <input
