@@ -10,9 +10,9 @@
     sort: {updated_at: {order: DESC}}
   ) {
 
-   
+    results {
       id
      properties
-    
+    }
   }
 }
