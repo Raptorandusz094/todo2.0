@@ -1,0 +1,15 @@
+mutation edit_ingredient($id: ID!, $item_id: [String!]) {
+  record:record_update(
+    
+    id: $id
+    record: {
+      properties: { name:"item_id", value_array:$item_id}
+    }
+  )   {
+    id
+    properties
+  
+   
+  }
+  
+}

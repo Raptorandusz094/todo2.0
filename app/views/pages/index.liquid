@@ -1,214 +1,182 @@
 {% liquid
   graphql items = 'item/search'
-   assign test = items
- 
 
 %}
 
+  <section id="hero">
+  <!-- flex container -->
 
-<section id="hero">
-<!-- flex container -->
 
+  <div class="container flex flex-col 
+                                                                                                                                                                                                                                                                                                                reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+    <!-- Lefti Item-->
+    <div class="flex flex-col md-32 space-y-12 md:w-1/2">
+      <h1 class="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left">
 
-<div class="container flex flex-col 
-    reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
-<!-- Lefti Item-->
-<div class="flex flex-col md-32 space-y-12 md:w-1/2">
-<h1 class="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left">
+        Talald meg a kajat amit ma ennel, gyorsan
+      </h1>
+      <br>
+      <br>
+      <p1 class="max-w-sm text-center text-darkGraylishBlue md:textleft">
+        Ehes vagy , es nem tudod mit ennel ,
+        mi segitunk , hogy olcson megtalalad a neked valo kajat,
+                                                                                                                                                                                                                                                                                                                                                                                                                  ez ennyire egyszeru
+      </p1>
 
-  Talald meg a kajat amit ma ennel, gyorsan
-</h1>
-<br>
-<br>
-<p1 class="max-w-sm text-center text-darkGraylishBlue md:textleft">
-  Ehes vagy , es nem tudod mit ennel ,
-  mi segitunk , hogy olcson megtalalad a neked valo kajat,
-  ez ennyire egyszeru </p1>
+      <div class="flex justify-center md:justify-start">
+        <a href="/search_bar" class="  md:block p-3 px-6 pt-2 text-white
+   bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight">find your favorite food</a>
+      </div>
 
-   <div class="flex justify-center md:justify-start">
-    <a href="" class="  md:block p-3 px-6 pt-2 text-white
-    bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight"
-    >Find your faovorite food</a>
     </div>
 
-   </div>
+    <!-- right item what is Image -->
+    <div class="md:w-1/2 ">
+      <img src="https://cdn.britannica.com/36/123536-050-95CB0C6E/Variety-fruits-vegetables.jpg" alt="">
+    </div>
+  </div>
 
-<!-- right item what is Image -->
-<div class="md:w-1/2 "
->
-<img src="https://cdn.britannica.com/36/123536-050-95CB0C6E/Variety-fruits-vegetables.jpg" alt="">
+
+  <div class="container flex flex-col 
+                                                                                                                                                                                                                                                                                                          reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+    <!-- Lefti Item-->
+    <div class="flex flex-col md-32 space-y-12 md:w-1/2">
+
+
+
+      <br>
+      <section id="hero2">
+        <!-- flex container -->
+
+
+        <div class="container flex flex-col 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+          <!-- Lefti Item-->
+          <div class="flex flex-col md-32 space-y-12 md:w-1/1">
+            <div class="max-w-md text-2xl  text-center md:text-5xl md:text-left">
+
+              <div class="bg-purple-800 p-8 rounded-lg max-w-md w-full mr-8">
+                <form action="item/create.liquid" method="post">
+                  <div class="mb-4">
+                    <label class="block text-white mb-2 text-2xl" for="title">Title:</label>
+                    <input
+                      type="text"
+                      id="title"
+                      name="title"
+                      placeholder="Enter title"
+                      class="w-full  h-10 p-2 bg-gray-200 rounded text-base">
+                  </div>
+                  <div class="mb-4">
+                    <label class="block text-white mb-2 text-2xl" for="ingredients">Ingredients:</label>
+                    <input
+                      type="text"
+                      id="ingredients"
+                      name="ingredients"
+                      placeholder="Enter ingredients"
+                      class="w-full h-10 p-2 bg-gray-200 rounded text-base">
+                  </div>
+                  <div class="mb-4">
+                    <label class="block text-white mb-2 text-2xl" for="title">Img:</label>
+                    <input
+                      type="text"
+                      id="img_url"
+                      name="img_url"
+                      placeholder="Enter imgurl"
+                      class="w-full  h-10 p-2 bg-gray-200 rounded text-base">
+                  </div>
+                  <button class="  md:block p-3 px-6 pt-2 text-white   
+                   bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Add item</button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <div class="container mx-auto">
+    <div class="flex flex-wrap -mx-4">
+
+      {% for item in items.records.results %}
+
+        {% assign itemId = item.id %}
+
+
+        <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+          <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+              <img
+                class=" rounded-t-lg h-30"
+                src="{{ item.img_url}}"
+                alt="" />
+            </a>
+            <div class="p-5">
+              <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ item.id}}{{ item.title }}</h5>
+              </a>
+              <ul class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4">
+                {% for ingredient in item.ingredients%}
+                  
+               
+                <li class="bg-purple-500 p-2 text-white rounded">{{ ingredient.title}}</li>
+             
+               {% endfor %}
+              </ul>
+              
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"></p>
+              <form action="item/delete.liquid" method="post">
+                <button  type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"> <input
+                    type="hidden"
+
+                    name="itemid"
+                    value="{{ item.id }}">
+           
+                    Delete
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M1 5h12m0 0L9 1m4 4L9 9" />
+                  </svg>
+                </button></button>
+                 
+              </a>
+            
+            </form>
+          </div>
+        </div>
+      </div>
+
+    {% endfor %}
+
+  </div>
 </div>
-</div></div>
-</section>
-
-<!-- list of items ,and add item -->
-<section id="faeture">
-<!-- flex container -->
 
 
-<div class="container flex flex-col 
-    reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
-<!-- Lefti Item-->
-<div class="flex flex-col md-32 space-y-12 md:w-1/2">
-<h1 class="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left">
 
- Adj kajat , amit szeretsz
-</h1>
-<br>
-<br>
-<p1 class="max-w-sm text-center text-darkGraylishBlue md:textleft">
- <!-- form for adding new item -->
-<form action="/item/create" method="post">
+<form action="/item/search_by_title" method="post">
 
-<input type="text" name="title"><!-- {% if items.records.total_entries==0 %}
+  <div class="flex justify-center items-center h-screen">
+    <div class="relative text-gray-600">
+      <button
+        href="/search_bar"
+        class="  md:block p-3 px-6 pt-2 text-white
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight"
+        type="submit">Search</button>
 
-  {% endif %} --><button type="submit">Add item</button>
 
-</form></p1>
-
-   <div class="flex justify-center md:justify-start">
-    <a href="" class="  md:block p-3 px-6 pt-2 text-white
-    bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight"
-    >Find your faovorite food</a>
     </div>
 
-   </div>
 
-<!-- right item what is Image -->
-<div class="md:w-1/2 "
->
-<ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
-  {% for item in items.records.results %}
 
-    {% assign id = item.id | plus: 0 %}
+  </form>
 
 
 
-    <div class="grid-container">
-      <li class="grid-item">{{ item.id }}
-        {{ item.title }}
-        <form action="/item/delete" method="post">
-          <input
-            class="grid-item"
-            type="hidden"
-            name="id"
-            value={{item.id}}>
-          <button class="grid-item" type="submit">Mark as done</button>
-        </form>
-        <form action="/item/update" method="post">
-
-          <input
-            class="grid-item"
-            type="text"
-            name="title">
-          <input
-            type="hidden"
-            name="id"
-            value={{item.id}}>
-          <button class="  md:block p-3 px-6 pt-2 text-white
-          bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">update item</button>
-        </form>
-
-
-      </li>
-    </div>
-
-  {% endfor %}
-</ul>
 </div>
-</div></div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
-  {% for item in items.records.results %}
-
-    {% assign id = item.id | plus: 0 %}
-
-
-
-    <div class="grid-container">
-      <li class="grid-item">{{ item.id }}
-        {{ item.title }}
-        <form action="/item/delete" method="post">
-          <input
-            class="grid-item"
-            type="hidden"
-            name="id"
-            value={{item.id}}>
-          <button class="grid-item" type="submit">Mark as done</button>
-        </form>
-        <form action="/item/update" method="post">
-
-          <input
-            class="grid-item"
-            type="text"
-            name="title">
-          <input
-            type="hidden"
-            name="id"
-            value={{item.id}}>
-          <button class="  md:block p-3 px-6 pt-2 text-white
-          bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">update item</button>
-        </form>
-
-
-      </li>
-    </div>
-
-  {% endfor %}
-</ul>
-
-<!-- information shown when the list is empty -->
-{% if items.records.total_entries == 0 %}
-  <div>There are no items in the list.</div>
-{% endif %}
-
-<!-- form for adding new item -->
-<form action="/item/create" method="post">
-
-  <input type="text" name="title"><!-- {% if items.records.total_entries==0 %}
-
-    {% endif %} --><button type="submit">Add item</button>
-
-</form>
-
-
-
-<!-- link to the About Me page -->
-<a href="/about">About Me</a>
-<a href="/userFood">Gaame</a>
-<a href="/mainsuer/signup">sign-up</a>

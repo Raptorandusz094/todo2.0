@@ -2,8 +2,11 @@ name: item
 properties:
   - name: title
     type: string
-  - name: userID
-    type: integer
-  
+  - name: ingredient_id
+    type: array
+  - name: img_url
+    type: string
+
+
   
     

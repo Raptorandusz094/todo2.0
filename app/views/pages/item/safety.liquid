@@ -1,0 +1,22 @@
+for ingred in ingredients
+	
+	graphql ingredientExist='item/ingredient/search_bytitle' , title:ingred
+	
+    
+	if  ingredientExist.records.total_entries == 0
+
+ 
+	graphql createIngredient='item/ingredient/create' ,title:ingred 
+	  
+
+     assign  ingredientIds=ingredientIds| add_to_array:createIngredient.record.id
+
+	else 
+	 assign ingredientIds=ingredientIds|concat: ingredientExist.record.id 
+
+
+	
+  
+	 endif
+	
+   endfor

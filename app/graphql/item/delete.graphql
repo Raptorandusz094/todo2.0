@@ -1,9 +1,9 @@
 mutation item_delete(
-  $id: ID!
+  $itemid: ID!
 ) {
   record: record_delete(
     table: "item"
-    id: $id
+    id: $itemid
   ) {
     id
   }

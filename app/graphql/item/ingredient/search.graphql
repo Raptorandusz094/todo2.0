@@ -1,11 +1,9 @@
-  query item_search_by_id (
-  $title:String
-) {
+  query ingredients  {
   records: records(
-    per_page: 100
+    per_page:6 
     filter: {
- table: { value: "item" }
- properties: { name: "title", contains: $title }
+ table: { value: "ingredient" }
+
 }
     sort: {updated_at: {order: DESC}}
   ) {
@@ -13,6 +11,8 @@
     results {
       id
       title: property(name: "title")
+
+      
     }
   }
 }

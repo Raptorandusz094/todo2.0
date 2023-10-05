@@ -4,13 +4,50 @@ method: post
 
 
 {% liquid
-	graphql result = 'item/create', title: context.params.title
+	
+    assign ingredients="[]" | parse_json
+	assign ingredients= context.params.ingredients | split: ','
+
 	
 
-	if result.record.id 
-	graphql email = 'item/email/created', data: context.params
-		redirect_to '/'
-	else
+	
+	
+	for ingredient in ingredients
+	
+	graphql ingredientExist='item/ingredient/search_bytitle' , title : ingredient
+	
+    
+	if  ingredientExist.records.total_entries == 0
+
+ 
+	graphql createIngredient='item/ingredient/create' , title : ingredient
+
+	
+	  
+
+     assign  ingredients=ingredients | array_add : createIngredient.record.id
+
+	else 
+	 assign ingredients=ingredients | array_add: ingredientExist.records.id
+
+
+	
+  
+	 endif
+	
+   endfor
+		
+	
+
+	
+	
+     graphql result = 'item/create', title: context.params.title , img : context.params.img_url  , ingredientID: test
+	
+	if result.record.id
+	redirect_to '/'
+	
+	
+else
 		echo 'Something went wrong'
 		echo result.errors
 	endif
