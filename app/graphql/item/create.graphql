@@ -1,6 +1,8 @@
 
 mutation item_create(
-  $title: String ,$ingredientID:[String!] , $img:String
+  $title: String
+  $ingredientID:[String!]
+  $img: String
 ) {
   record: record_create(
     record: {
@@ -8,10 +10,11 @@ mutation item_create(
       properties: [
         { name: "title", value: $title }
          { name: "ingredient_id", value_array: $ingredientID }
-         { name: "img_url", value:$img }
+         { name: "img_url", value: $img }
       ]
     }
   ) {
-   properties
+    id
+    properties
   }
 }

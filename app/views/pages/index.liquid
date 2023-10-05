@@ -7,8 +7,7 @@
   <!-- flex container -->
 
 
-  <div class="container flex flex-col 
-                                                                                                                                                                                                                                                                                                                reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+  <div class="container flex flex-col reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
     <!-- Lefti Item-->
     <div class="flex flex-col md-32 space-y-12 md:w-1/2">
       <h1 class="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left">
@@ -17,15 +16,14 @@
       </h1>
       <br>
       <br>
-      <p1 class="max-w-sm text-center text-darkGraylishBlue md:textleft">
+      <h2 class="max-w-sm text-center text-darkGraylishBlue md:textleft">
         Ehes vagy , es nem tudod mit ennel ,
         mi segitunk , hogy olcson megtalalad a neked valo kajat,
-                                                                                                                                                                                                                                                                                                                                                                                                                  ez ennyire egyszeru
-      </p1>
+        ez ennyire egyszeru
+      </h2>
 
       <div class="flex justify-center md:justify-start">
-        <a href="/search_bar" class="  md:block p-3 px-6 pt-2 text-white
-   bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight">find your favorite food</a>
+        <a href="/search_bar" class="  md:block p-3 px-6 pt-2 text-white bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight">find your favorite food</a>
       </div>
 
     </div>
@@ -37,8 +35,7 @@
   </div>
 
 
-  <div class="container flex flex-col 
-                                                                                                                                                                                                                                                                                                          reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+  <div class="container flex flex-col reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
     <!-- Lefti Item-->
     <div class="flex flex-col md-32 space-y-12 md:w-1/2">
 
@@ -49,14 +46,13 @@
         <!-- flex container -->
 
 
-        <div class="container flex flex-col 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+        <div class="container flex flex-col reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
           <!-- Lefti Item-->
           <div class="flex flex-col md-32 space-y-12 md:w-1/1">
             <div class="max-w-md text-2xl  text-center md:text-5xl md:text-left">
 
               <div class="bg-purple-800 p-8 rounded-lg max-w-md w-full mr-8">
-                <form action="item/create.liquid" method="post">
+                <form action="item/create" method="post">
                   <div class="mb-4">
                     <label class="block text-white mb-2 text-2xl" for="title">Title:</label>
                     <input
@@ -84,7 +80,7 @@
                       placeholder="Enter imgurl"
                       class="w-full  h-10 p-2 bg-gray-200 rounded text-base">
                   </div>
-                  <button class="  md:block p-3 px-6 pt-2 text-white   
+                  <button class="  md:block p-3 px-6 pt-2 text-white
                    bg-brightPurple rounded-full baseline hover:bg-brightPurpleLight" type="submit">Add item</button>
                 </form>
               </div>
@@ -121,13 +117,13 @@
               </a>
               <ul class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4">
                 {% for ingredient in item.ingredients%}
-                  
-               
+
+
                 <li class="bg-purple-500 p-2 text-white rounded">{{ ingredient.title}}</li>
-             
+
                {% endfor %}
               </ul>
-              
+
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"></p>
               <form action="item/delete.liquid" method="post">
                 <button  type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"> <input
@@ -135,7 +131,7 @@
 
                     name="itemid"
                     value="{{ item.id }}">
-           
+
                     Delete
                     <path
                       stroke="currentColor"
@@ -145,9 +141,9 @@
                       d="M1 5h12m0 0L9 1m4 4L9 9" />
                   </svg>
                 </button></button>
-                 
+
               </a>
-            
+
             </form>
           </div>
         </div>

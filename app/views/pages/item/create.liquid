@@ -2,53 +2,29 @@
 method: post
 ---
 
-
 {% liquid
-	
-    assign ingredients="[]" | parse_json
-	assign ingredients= context.params.ingredients | split: ','
+  assign ingredients = context.params.ingredients | split: ','
+  assign ingredientIDs = '[]' | parse_json
 
-	
+  for ingredient in ingredients
+    graphql ingredientExist='item/ingredient/search_bytitle', title : ingredient
 
-	
-	
-	for ingredient in ingredients
-	
-	graphql ingredientExist='item/ingredient/search_bytitle' , title : ingredient
-	
-    
-	if  ingredientExist.records.total_entries == 0
+    if ingredientExist.records.total_entries == 0
+      graphql createIngredient='item/ingredient/create', title : ingredient
 
- 
-	graphql createIngredient='item/ingredient/create' , title : ingredient
+      assign ingredientIDs = ingredientIDs | array_add: createIngredient.record.id
+    else
+      assign ingredientIDs = ingredientIDs | array_add: ingredientExist.records.results.first.id
+    endif
+  endfor
 
-	
-	  
+  graphql result = 'item/create', title: context.params.title , img : context.params.img_url  , ingredientID: ingredientIDs
 
-     assign  ingredients=ingredients | array_add : createIngredient.record.id
+  if result.record.id
+    redirect_to '/'
 
-	else 
-	 assign ingredients=ingredients | array_add: ingredientExist.records.id
-
-
-	
-  
-	 endif
-	
-   endfor
-		
-	
-
-	
-	
-     graphql result = 'item/create', title: context.params.title , img : context.params.img_url  , ingredientID: test
-	
-	if result.record.id
-	redirect_to '/'
-	
-	
-else
-		echo 'Something went wrong'
-		echo result.errors
-	endif
+  else
+    echo 'Something went wrong'
+    echo result.errors
+  endif
 %}

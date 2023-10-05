@@ -1,28 +1,28 @@
-query searchBar( $ingredient:[String!],$title:String="") {
+query searchBar(
+  $ingredient: String
+  $title: String
+) {
   foods: records(
     filter: {
       table: { value: "item" }
       properties:[
-      
-      {name:"ingredient_id" array_contains:$ingredient}
-      {name:"title" contains:$title}
-        ]
-       },
-    per_page: 200
+        { name:"ingredient_id", contains: $ingredient }
+        { name:"title", contains: $title }
+      ]
+    },
+    per_page: 20
   ) {
     total_entries
     results {
-      id  
+      id
       properties
-      ingredient:
-      related_records(table: "ingredient", join_on_property: "ingredient_id",foreign_property:"id"
-       
-       
-        
-      )
-       {id
-    
-      properties
+      ingredient: related_records(
+        table: "ingredient"
+        join_on_property: "ingredient_id"
+        foreign_property: "id"
+      ) {
+        id
+        properties
       }
     }
   }
