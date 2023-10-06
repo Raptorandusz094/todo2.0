@@ -3,7 +3,7 @@ method: post
 ---
 
 {% liquid
-  asssign ingredients = context.params.ingredients | split: ','
+  assign ingredients = context.params.ingredients | split: ','
   assign ingredientIDs = '[]' | parse_json
 
   for ingredient in ingredients
