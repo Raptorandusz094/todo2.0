@@ -1,1 +1,4 @@
 node_modules/
+.pos
+tmp/
+app/assets/styles/*.css
