@@ -1,0 +1,27 @@
+---
+method: post
+---
+
+{% liquid
+  assign userId =  context.current_user.id
+  assign comments = '[]' | parse_json
+
+     graphql actualFood= 'item/search_by_id', id: context.params.id
+
+      assign comments=actualFood.records.results.first.comment_id
+
+    graphql createcomment='item/comment/create', comment : comments ,user_id: userId
+
+    if createcomment.record.id
+      
+      assign comments =comments | array_add: createcomment.record.id
+
+      graphql updateCommentList='item/update_comments' , id: context.params.id, comments:comments
+   
+
+
+      endif
+ 
+
+
+%}

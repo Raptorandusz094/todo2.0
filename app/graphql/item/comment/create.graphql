@@ -12,7 +12,7 @@ mutation comment_create
     
     ]}
   ) {
-   
+  
     id
     properties
   
