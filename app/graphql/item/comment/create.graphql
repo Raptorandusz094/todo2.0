@@ -1,0 +1,20 @@
+mutation comment_create
+(
+    $comment: String,
+    $user_id:String
+ )
+   {
+  record: record_create(
+    record: {table: "comment", properties: 
+    [{name: "comment", value: $comment},
+     {name:"user_id" , value:$user_id}
+    
+    
+    ]}
+  ) {
+   
+    id
+    properties
+  
+  }
+}

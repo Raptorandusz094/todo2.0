@@ -1,0 +1,14 @@
+mutation edit_rating($id: ID!, $rate: Int!) {
+  record:record_update(
+    
+    id: $id
+    record: {
+      properties: { name: "rate", value:$rate}
+    }
+  )   {
+    id
+  
+   
+  }
+  
+}

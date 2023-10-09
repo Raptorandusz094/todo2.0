@@ -1,0 +1,7 @@
+name: comment
+
+properties:
+  - name: comment
+    type: string
+  - name: user_id
+    type: string

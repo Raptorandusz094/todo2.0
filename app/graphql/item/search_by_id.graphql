@@ -9,7 +9,7 @@
 
     results {
       id
-      title: property(name: "title")
+      img:property(name:"img_url")
     }
   }
 }

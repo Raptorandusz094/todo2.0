@@ -6,6 +6,10 @@ properties:
     type: array
   - name: img_url
     type: string
+  - name: rating_id
+    type: array
+  - name: comment_id
+    type: array
 
 
   

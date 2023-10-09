@@ -1,0 +1,14 @@
+mutation edit_comment($id: ID!, $comment: String!) {
+  record:record_update(
+    
+    id: $id
+    record: {
+      properties: { name: "comment", value:$comment}
+    }
+  )   {
+    id
+  
+   
+  }
+  
+}

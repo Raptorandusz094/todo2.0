@@ -1,0 +1,20 @@
+mutation rating_create
+(
+    $rate: Int,
+    $user_id:String
+ )
+   {
+  record: record_create(
+    record: {table: "rating", properties: 
+    [{name: "rate", value_int: $rate},
+     {name:"user_id" , value:$user_id}
+    
+    
+    ]}
+  ) {
+   
+    id
+    properties
+  
+  }
+}

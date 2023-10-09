@@ -1,0 +1,7 @@
+name: rating
+
+properties:
+  - name: rate
+    type: integer
+  - name: user_id
+    type: string
