@@ -1,0 +1,14 @@
+mutation edit_ratings($id: ID!, $rating: [String!]) {
+  item:record_update(
+    
+    id: $id
+    record: {
+      properties: {name: "rating_id", value_array:$rating}
+    }
+  )   {
+    id
+  
+   
+  }
+  
+}

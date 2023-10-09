@@ -1,9 +1,9 @@
-mutation edit_rating($id: ID!, $rate: Int!) {
-  record:record_update(
+mutation edit_comments($id: ID!, $comments: [String!]) {
+  item:record_update(
     
     id: $id
     record: {
-      properties: { name: "rate", value:$rate}
+      properties: {name: "comments_id", value_array:$comments}
     }
   )   {
     id
