@@ -1,0 +1,13 @@
+---
+method: post
+---
+{% liquid
+  function result = 'commands/users/create', object: params
+
+  if result.valid
+    sign_in user_id: result.user_create.id
+    redirect_to '/'
+  endif
+
+  redirect_to '/register'
+%}

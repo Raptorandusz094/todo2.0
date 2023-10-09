@@ -1,0 +1,30 @@
+{% liquid
+  if context.current_user.id
+    redirect_to '/'
+  endif
+%}
+
+<h1 class="text-2xl">Login</h1>
+<div class="p-6 bg-white">
+  <form method="post" action="/user/login">
+    <input
+      type="hidden"
+      name="authenticity_token"
+      value="{{ context.authenticity_token }}">
+    <fieldset class="pb-6">
+      <input
+        type="email"
+        name="email"
+        class="p-2 border border-gray-500"
+        placeholder="Email">
+    </fieldset>
+    <fieldset class="pb-6">
+      <input
+        type="password"
+        name="password"
+        class="p-2 border border-gray-500"
+        placeholder="Password">
+    </fieldset>
+    <button type="submit" class="p-2 text-white bg-blue-600">Log in</button>
+  </form>
+</div>

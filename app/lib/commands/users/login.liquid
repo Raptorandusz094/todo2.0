@@ -1,0 +1,10 @@
+{% liquid
+  graphql verify = 'user/verify_password', email: email, password: password
+
+  if verify.users.results.first.authenticate.password == true
+    sign_in user_id: verify.users.results.first.id
+    return true
+  endif
+
+  return false
+%}

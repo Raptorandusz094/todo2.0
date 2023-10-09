@@ -1,0 +1,9 @@
+{% liquid
+  hash_assign object['valid'] = true
+
+  if object.name == blank or object.password == blank or object.email == blank or object.age == blank
+    hash_assign object['valid'] = false
+  endif
+
+  return object
+%}

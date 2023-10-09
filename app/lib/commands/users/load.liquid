@@ -1,0 +1,7 @@
+{% liquid
+  graphql user = 'user/load', user_id: id
+
+  if user
+    return user.users.results.first
+  endif
+%}

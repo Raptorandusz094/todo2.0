@@ -1,0 +1,10 @@
+query user_load ($user_id: ID! ) {
+  users(filter: {id: {value: $user_id}}, per_page: 1) {
+    results {
+      id
+      email
+      name
+      age: property(name: "age")
+    }
+  }
+}

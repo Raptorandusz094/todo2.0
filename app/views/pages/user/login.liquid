@@ -1,0 +1,12 @@
+---
+method: post
+---
+{% liquid
+  function login_result = 'commands/users/login', email: context.params.email, password: context.params.password
+
+  if login_result == true
+    redirect_to '/'
+  else
+    redirect_to '/login'
+  endif
+%}

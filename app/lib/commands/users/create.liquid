@@ -1,0 +1,13 @@
+{% liquid
+  function object = 'commands/users/create/build', object: object
+  function object = 'commands/users/create/check', object: object
+
+  if object.valid
+    graphql object = 'user/create', email: object.email, name: object.name, password: object.password, age: object.age
+    unless object.errors
+      hash_assign object['valid'] = true
+    endunless
+  endif
+
+  return object
+%}
